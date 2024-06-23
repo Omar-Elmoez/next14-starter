@@ -1,5 +1,9 @@
-import Link from "next/link";
+import Navlink from "./navlink/Navlink";
+import styles from "./links.module.css";
 
+const { logout, menuButton, mobileLinks } = styles;
+const session = false;
+const isAdmin = false;
 const Links = () => {
   const links = [
     {
@@ -20,11 +24,21 @@ const Links = () => {
     },
   ];
 
-  return links.map((link) => (
-    <Link href={link.url} key={link.title}>
-      {link.title}
-    </Link>
-  ));
+  return (
+    <section className={styles.links}>
+      {links.map((link) => (
+        <Navlink item={link} key={link.title} />
+      ))}
+      {session ? (
+        <>
+          {isAdmin && <Navlink item={{ title: "Admin", url: "/admin" }} />}
+          <button className={logout}>Logout</button>
+        </>
+      ) : (
+        <Navlink item={{ title: "Login", url: "/login" }} />
+      )}
+    </section>
+  );
 };
 
 export default Links;
