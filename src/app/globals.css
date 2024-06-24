@@ -76,3 +76,29 @@ a {
     width: 380px;
   }
 }
+
+.imgContainer {
+  position: relative;
+  flex: 1;
+}
+
+.img {
+  object-fit: contain;
+}
+
+.textContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.pageContainer {
+  display: flex;
+  /* align-items: center; */
+  gap: 100px;
+}
+/* in the above rule: 
+  - if your imgContainer doesn't have a predefined height, it will have no height
+  - if align-items: center is active;
+*/
